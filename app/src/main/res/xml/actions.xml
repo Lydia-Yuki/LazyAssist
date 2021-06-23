@@ -1,0 +1,31 @@
+<?xml version ="1.0" encoding ="utf-8"?><!--  Learn More about how to use App Actions: https://developer.android.com/guide/actions/index.html -->
+<actions>
+    <!--    Example Action -->
+    <!--    <action intentName="Intent name (actions.intent.*)"> -->
+    <!--        <action-display -->
+    <!--            icon="@mipmap/..." -->
+    <!--            labelTemplate="@array/..." /> -->
+    <!--        <fulfillment urlTemplate="Action content URI or URL"> -->
+    <!--            <parameter-mapping -->
+    <!--                intentParameter="Parameter name in Intent URI" -->
+    <!--                urlParameter="Parameter name in URL" /> -->
+    <!--        </fulfillment> -->
+    <!--    </action> -->
+
+        <action intentName="actions.intent.CREATE_CALL">
+            <fulfillment fulfillmentMode="actions.fulfillment.DEEPLINK"
+                urlTemplate="myapp://custom-deeplink{?callFormat,name,telephone}"
+                requiredForegroundActivity="com.huawei.phoneservice/com.huawei.phoneservice.app.MainActivity">
+                <!-- Eg. callFormat = "Audio" -->
+                <!-- (Optional) Require a field eg.callFormat for fulfillment with required="true" -->
+                <parameter-mapping urlParameter="callFormat" intentParameter="call.callFormat" required="true" />
+                <!-- Eg. name = "John Doe" -->
+                <parameter-mapping urlParameter="name" intentParameter="call.participant.name" />
+                <!-- Eg. telephone = "012-345-6789" -->
+                <parameter-mapping urlParameter="telephone" intentParameter="call.participant.telephone" />
+            </fulfillment>
+
+            <!-- Provide a fallback fulfillment with no required parameters. For example, to your app search or router deeplink -->
+            <fulfillment urlTemplate="myapp://deeplink" />
+        </action>
+</actions>

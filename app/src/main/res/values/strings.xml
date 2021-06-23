@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LazyAssist</string>
+    <string name="accessibilityservice_label" />
+</resources>

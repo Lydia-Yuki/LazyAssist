@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "21287329869",
+    "project_id": "lazyassist",
+    "storage_bucket": "lazyassist.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21287329869:android:b2d22f351afad3dd5f3c04",
+        "android_client_info": {
+          "package_name": "com.example.lazyassist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "21287329869-def7d8l5k65mb2a2hr1el778bp16u05b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcHy_9IwAEm-p8UWv9Yl7I_dlrMacsvkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "21287329869-def7d8l5k65mb2a2hr1el778bp16u05b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
