@@ -30,11 +30,10 @@
 
     <Button
         android:id="@+id/speakBtn"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:layout_alignBottom="@id/voiceBtn"
+        android:layout_width="156dp"
+        android:layout_height="87dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-90dp"
         android:background="#AE23FF"
         android:text="Speak" />
 </RelativeLayout>

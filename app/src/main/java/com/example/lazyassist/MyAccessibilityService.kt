@@ -10,6 +10,7 @@ import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
 import android.view.*
 import android.view.accessibility.AccessibilityEvent
+import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.Toast
@@ -55,23 +56,26 @@ class MyAccessibilityService : AccessibilityService() {
 
         lateinit var mTTS: TextToSpeech
 
-        val eventType = event!!.eventType
-        var eventText: String? = null
-        when (eventType) {
-            AccessibilityEvent.TYPE_VIEW_CLICKED -> eventText = "Focused: "
-            AccessibilityEvent.TYPE_VIEW_FOCUSED -> eventText = "Focused: "
-        }
-
-        eventText = eventText + event.contentDescription
-
-        mTTS = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
-            if (status != TextToSpeech.ERROR) {
-                //if there is no error then set language
-                mTTS.language = Locale.UK
+        val speakButton: Button = mLayout!!.findViewById<View>(R.id.speakBtn) as Button
+        speakButton.setOnClickListener {
+            val eventType = event!!.eventType
+            var eventText: String? = null
+            when (eventType) {
+                AccessibilityEvent.TYPE_VIEW_CLICKED -> eventText = "Focused: "
+                AccessibilityEvent.TYPE_VIEW_FOCUSED -> eventText = "Focused: "
             }
-        })
 
-        mTTS.speak(eventText, TextToSpeech.QUEUE_FLUSH, null)
+            eventText = eventText + event.contentDescription
+
+            mTTS = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
+                if (status != TextToSpeech.ERROR) {
+                    //if there is no error then set language
+                    mTTS.language = Locale.UK
+                }
+            })
+
+            mTTS.speak(eventText, TextToSpeech.QUEUE_FLUSH, null)
+        }
 
     }
 
